@@ -34,7 +34,7 @@ export default function PressPage() {
           <div className="nf-nav-links">
             <Link to="/profiles" className="nf-nav-link">Home</Link>
             <Link to="/contact" className="nf-nav-link">Contact Me</Link>
-            <Link to="/press" className="nf-nav-link is-active">Existing press</Link>
+            <Link to="/press" className="nf-nav-link is-active">Existing Press</Link>
           </div>
         </div>
         <Link to="/profiles" className="nf-profile-icon" aria-label="Switch profile">
