@@ -81,7 +81,7 @@ export default function Home() {
         <div className="nf-hero-content">
           <h1 className="nf-hero-title">Patra Urairat</h1>
           <p className="nf-hero-subtitle">
-            Energised by chaos. Can never do anything half-way.
+            I engineer my own luck. For the impossible, give me 12 hours.
           </p>
           <div className="nf-hero-actions">
             <a
