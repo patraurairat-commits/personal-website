@@ -28,8 +28,8 @@ const PICKS: Pick[] = [
   },
   {
     id: 'side',
-    title: 'Side quester',
-    body: 'S3, EP8: Fuck it, we ball',
+    title: 'Personal projects',
+    body: 'S3, EP8: We ball',
     image: '/images/sidequester.png',
     to: '/side-quester',
   },
@@ -81,7 +81,7 @@ export default function Home() {
         <div className="nf-hero-content">
           <h1 className="nf-hero-title">Patra Urairat</h1>
           <p className="nf-hero-subtitle">
-            I engineer my own luck. For the impossible, give me 12 hours.
+            I engineer my own luck. 
           </p>
           <div className="nf-hero-actions">
             <a

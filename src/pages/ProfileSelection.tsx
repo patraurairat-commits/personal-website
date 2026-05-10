@@ -9,7 +9,7 @@ type Profile = {
 const PROFILES: Profile[] = [
   { id: 'recruiter', label: 'Recruiter', avatar: '/assets/avatars/image_7.png' },
   { id: 'stalker', label: 'Stalker', avatar: '/assets/avatars/image_9.png' },
-  { id: 'yc-partner', label: 'YC Partner', avatar: '/assets/avatars/image_8.png' },
+  { id: 'adventurer', label: 'Adventurer', avatar: '/assets/avatars/image_8.png' },
 ]
 
 export default function ProfileSelection() {

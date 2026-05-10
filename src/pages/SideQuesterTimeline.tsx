@@ -1,28 +1,74 @@
 import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 
-type Side = 'left' | 'right'
 type Media = { src: string; caption?: string }
 
-type Episode = {
-  side: Side
+type HobbyCard = {
   title: string
-  body: ReactNode
+  blurb: ReactNode
   images: Media[]
-  gallery?: boolean
+}
+
+type TechLink = { label: string; href: string }
+
+type TechCard = {
+  title: string
+  blurb: string
+  image: Media
+  primary: TechLink
+  secondary?: TechLink
 }
 
 const AWARDS_LINK = 'https://cpac.com.my/awards/'
 
-const EPISODES: Episode[] = [
+const HOBBY_CARDS: HobbyCard[] = [
   {
-    side: 'left',
-    title: 'Early teen years',
-    body: (
+    title: 'Hosted communities, not just events',
+    blurb: (
       <>
-        Discovered musical theatre aged 13. No prior experience. Age 14,
-        starred in “First school to stage an original musical at a professional
-        level” in{' '}
+        Refused to peak in high school. Used the platform to throw events that
+        pulled people in and gave back.
+      </>
+    ),
+    images: [
+      { src: '/images/ouaps.png', caption: 'Asia-Pacific Charity Ball' },
+      { src: '/images/beans.png', caption: 'DJ/Coffee charity event' },
+    ],
+  },
+  {
+    title: 'First-gen Oxonian',
+    blurb: (
+      <>
+        First in my family at Oxford. First in my nuclear family at university,
+        period. Wore the brand name without leaning on it.
+      </>
+    ),
+    images: [
+      { src: '/images/oxford.png', caption: 'Official Oxonian' },
+      { src: '/images/choir.png', caption: 'A Westminster Chorister' },
+      { src: '/images/unilife.png', caption: 'Uni life' },
+    ],
+  },
+  {
+    title: 'Anthems & ballroom floors',
+    blurb: (
+      <>
+        Sang the US National Anthem for an official visit. Repped my culture on
+        every stage available. Took dancesport from zero to competitive.
+      </>
+    ),
+    images: [
+      { src: '/images/american.png', caption: 'US anthem' },
+      { src: '/images/culture.png', caption: 'Cultural showcase' },
+      { src: '/images/dancesport.png', caption: 'Competitive Latin' },
+    ],
+  },
+  {
+    title: 'Took the stage at 13',
+    blurb: (
+      <>
+        Picked up musical theatre with zero experience. By 14, headlined the
+        first school musical entered into{' '}
         <a
           className="cos-inline-link"
           href={AWARDS_LINK}
@@ -31,44 +77,39 @@ const EPISODES: Episode[] = [
         >
           Malaysia’s Book of Records
         </a>
-        . Lead the show the following year.
+        . Lead the next year — Happy Days.
       </>
     ),
     images: [{ src: '/images/lead.png', caption: 'Female lead, “Happy Days”' }],
   },
+]
+
+const TECH_CARDS: TechCard[] = [
   {
-    side: 'right',
-    title: 'Keeping the ball rolling',
-    body:
-      'Once the ball was rolling, I couldn’t stop. Performed countless shows, highlights include being selected to sing the US National Anthem for a US official’s visit & any performance where I could represent my culture. Went from 0 dance experience to competitive level.',
-    images: [
-      { src: '/images/american.png', caption: 'US anthem' },
-      { src: '/images/culture.png', caption: 'Cultural showcase' },
-      { src: '/images/dancesport.png', caption: 'Competitive Latin' },
-    ],
-    gallery: true,
+    title: 'Auracle Labs',
+    blurb:
+      'Won a 4-hour hackathon. Built a wearable air-quality device with olfactory sensors. Name = aura (air) + oracle (prediction).',
+    image: {
+      src: '/images/auracle.png',
+      caption: 'Auracle infographic',
+    },
+    primary: {
+      label: 'Live demo',
+      href: 'https://hildieleyser.github.io/auracle/',
+    },
+    secondary: {
+      label: 'GitHub',
+      href: 'https://github.com/saniya2912/auracle-matchathon.git',
+    },
   },
   {
-    side: 'left',
-    title: 'Young adult life',
-    body:
-      'First in my family to attend Oxford. First gen in nuclear family to attend university at all. Often felt uneasy in ‘elite’ circles. Learned to milk a brand name, but not rely on it.',
-    images: [
-      { src: '/images/oxford.png', caption: 'Official Oxonian' },
-      { src: '/images/choir.png', caption: 'A Westminster Chorister' },
-    ],
-    gallery: true,
-  },
-  {
-    side: 'right',
-    title: 'Uni life',
-    body:
-      'Trying to not have peaked in high-school. Rediscovering autonomy mid-pipeline, hosting events to use my passion to enrich communities.',
-    images: [
-      { src: '/images/ouaps.png', caption: 'Asia-Pacific Charity Ball' },
-      { src: '/images/beans.png', caption: 'DJ/Coffee charity event' },
-    ],
-    gallery: true,
+    title: 'Structured AI',
+    blurb: 'Built and shipped the main landing page for Structured AI.',
+    image: {
+      src: '/images/structured.png',
+      caption: 'Structured AI landing page',
+    },
+    primary: { label: 'getstructured.ai', href: 'https://getstructured.ai/' },
   },
 ]
 
@@ -101,43 +142,104 @@ export default function SideQuesterTimeline() {
         </Link>
       </nav>
 
-      <main className="cos-page">
-        <header className="cos-header">
+      <main className="cos-page proj-page">
+        <header className="proj-header">
           <p className="cos-kicker">A Patra Original Series</p>
-          <h1 className="cos-title">Side Quester</h1>
-          <p className="cos-intro">
-            I’m one of those self-proclaimed ‘lucky people’. Somewhere along the
-            way, I put my energy into making it self-perpetuating.
+          <h1 className="proj-title">Projects</h1>
+          <p className="proj-intro">
+            A two-track overview — what I’ve built off-stage and on-screen.
           </p>
         </header>
 
-        <ol className="cos-timeline">
-          {EPISODES.map((ep, i) => (
-            <li key={i} className={`cos-item cos-item-${ep.side}`}>
-              <span className="cos-node" aria-hidden="true" />
-              <article className="cos-card">
-                <h2 className="cos-ep-title">{ep.title}</h2>
-                <p className="cos-ep-body">{ep.body}</p>
-                <div
-                  className={`cos-media cos-media-labeled${
-                    ep.gallery ? ' cos-media-gallery' : ''
-                  }`}
-                >
-                  {ep.images.map((m) => (
-                    <figure key={m.src} className="cos-media-figure">
-                      <img src={m.src} alt={m.caption || ''} loading="lazy" />
-                      {m.caption && (
-                        <figcaption className="cos-media-label">
-                          {m.caption}
-                        </figcaption>
-                      )}
+        <section className="proj-grid" aria-label="Project columns">
+          <div className="proj-column">
+            <div className="proj-column-header">
+              <h2 className="proj-column-title">Hobby Projects</h2>
+              <span className="proj-count">{HOBBY_CARDS.length}</span>
+            </div>
+            <ul className="proj-list">
+              {HOBBY_CARDS.map((card) => (
+                <li key={card.title}>
+                  <button type="button" className="proj-card proj-card-hobby">
+                    <h3 className="proj-card-title">{card.title}</h3>
+                    <p className="proj-card-blurb">{card.blurb}</p>
+                    {card.images.length > 0 && (
+                      <div
+                        className={`proj-card-media${
+                          card.images.length > 1 ? ' proj-card-media-grid' : ''
+                        }`}
+                      >
+                        {card.images.map((m) => (
+                          <figure key={m.src} className="proj-card-figure">
+                            <img src={m.src} alt={m.caption || ''} loading="lazy" />
+                            {m.caption && (
+                              <figcaption className="proj-card-caption">
+                                {m.caption}
+                              </figcaption>
+                            )}
+                          </figure>
+                        ))}
+                      </div>
+                    )}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="proj-column">
+            <div className="proj-column-header">
+              <h2 className="proj-column-title">Technical Projects</h2>
+              <span className="proj-count">{TECH_CARDS.length}</span>
+            </div>
+            <ul className="proj-list">
+              {TECH_CARDS.map((card) => (
+                <li key={card.title}>
+                  <article className="proj-card proj-card-tech">
+                    <figure className="proj-card-figure proj-card-hero">
+                      <img
+                        src={card.image.src}
+                        alt={card.image.caption || card.title}
+                        loading="lazy"
+                      />
                     </figure>
-                  ))}
-                </div>
-              </article>
-            </li>
-          ))}
-        </ol>
+                    <h3 className="proj-card-title">
+                      <a
+                        className="proj-card-link"
+                        href={card.primary.href}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        {card.title}
+                      </a>
+                    </h3>
+                    <p className="proj-card-blurb">{card.blurb}</p>
+                    <div className="proj-card-links">
+                      <a
+                        href={card.primary.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="proj-card-pill proj-card-pill-primary"
+                      >
+                        {card.primary.label}
+                      </a>
+                      {card.secondary && (
+                        <a
+                          href={card.secondary.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="proj-card-pill"
+                        >
+                          {card.secondary.label}
+                        </a>
+                      )}
+                    </div>
+                  </article>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
       </main>
     </div>
   )
