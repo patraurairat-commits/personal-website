@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import Contact from './pages/Contact'
 import ChiefOfStaffTimeline from './pages/ChiefOfStaffTimeline'
 import MusicianSpotify from './pages/MusicianSpotify'
+import Founder from './pages/Founder'
 import PressPage from './pages/PressPage'
 import SideQuesterTimeline from './pages/SideQuesterTimeline'
 
@@ -16,6 +17,7 @@ export default function App() {
       <Route path="/home" element={<Home />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/chief-of-staff" element={<ChiefOfStaffTimeline />} />
+      <Route path="/founder" element={<Founder />} />
       <Route path="/musician" element={<MusicianSpotify />} />
       <Route path="/press" element={<PressPage />} />
       <Route path="/side-quester" element={<SideQuesterTimeline />} />

@@ -23,6 +23,11 @@ const AWARDS_LINK = 'https://cpac.com.my/awards/'
 
 const HOBBY_CARDS: HobbyCard[] = [
   {
+    title: 'Incoming: Generative Media Hackathon',
+    blurb: <>With fal.ai and Higgsfield (?!). Watch this space...</>,
+    images: [],
+  },
+  {
     title: 'Hosted communities, not just events',
     blurb: (
       <>

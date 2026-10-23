@@ -1769,3 +1769,17 @@ a { color: inherit; }
   .nf-card { width: 72vw; }
   .profile-avatar { width: 120px; height: 120px; }
 }
+
+/* Founder page */
+.founder-role {
+  margin: 4px 20px 12px;
+}
+
+.founder-bullets {
+  margin: 0 20px 14px;
+  padding-left: 18px;
+}
+
+.founder-bullets li {
+  margin-bottom: 8px;
+}

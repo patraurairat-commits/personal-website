@@ -17,10 +17,10 @@ type Episode = {
 const EPISODES: Episode[] = [
   {
     side: 'left',
-    season: 'Season 2025',
+    season: 'Season 2026',
     episode: 'Episode 1',
-    title: 'Goodbye em dashes, Hello startups!',
-    body: "Family trauma. Unenthused about future. Left oxford, disillusioned by risk-aversity of 'elite' Oxford peers. Needed to escape the matrix. Determined to find out 'what was really out there' and started cold calling. Had a terrible outreach style. Pivoted. Somehow managed to get 4 job offers in 3 weeks, landed a job at a YC-backed start-up.",
+    title: 'Hello, World',
+    body: "Needed to escape the matrix. Determined to find out 'what was really out there' and started cold calling. Had a terrible outreach style. Pivoted. Somehow managed to get 4 job offers in 3 weeks, landed a job at a YC-backed start-up.",
     images: [{ src: '/images/hugo.png' }],
   },
   {
@@ -39,8 +39,22 @@ const EPISODES: Episode[] = [
     side: 'left',
     episode: 'Episode 3',
     title: 'Eye of the Tiger',
-    body: 'maxxing vibe-coding, networking, and hackathons in London whilst preparing for the company move to New York.',
+    body: 'Maxxing vibe-coding, networking, and hackathons in London whilst preparing for the company move to New York.',
     images: [{ src: '/images/networking.png' }],
+  },
+  {
+    side: 'right',
+    episode: 'Episode 4',
+    title: "Now We're Flying",
+    body: 'Moved to NYC, worked all day, partied all night (perhaps the greatest form of networking). 1000x\'ed. Built an automated financial forecasting model, cutting monthly spend 21% and replacing manual reporting. Developed 3 internal tools (landing page, deal-tracking dashboard, forecasting system) consolidating deals, outbound and scheduling into one system.',
+    images: [],
+  },
+  {
+    side: 'left',
+    episode: 'Episode 5',
+    title: 'Drop Out: I Dare You',
+    body: 'Left the YC startup to focus on building something of my own in Malaysia/London. Whilst I am back at university (sue me, I want a degree!), watch this space...',
+    images: [],
   },
 ]
 
@@ -78,6 +92,7 @@ export default function ChiefOfStaffTimeline() {
                 </p>
                 <h2 className="cos-ep-title">{ep.title}</h2>
                 <p className="cos-ep-body">{ep.body}</p>
+                {ep.images.length > 0 && (
                 <div className={`cos-media${ep.gallery ? ' cos-media-gallery' : ''}`}>
                   {ep.images.map((m) => (
                     <figure key={m.src} className="cos-media-figure">
@@ -90,6 +105,7 @@ export default function ChiefOfStaffTimeline() {
                     </figure>
                   ))}
                 </div>
+                )}
               </article>
             </li>
           ))}

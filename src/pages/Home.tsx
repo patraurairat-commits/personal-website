@@ -5,7 +5,7 @@ const RESUME = '/Patra_Urairat_CV_2026.pdf'
 const LINKEDIN = 'https://www.linkedin.com/in/patraurairat/'
 
 type Pick = {
-  id: 'chief' | 'musician' | 'side'
+  id: 'chief' | 'founder' | 'side' | 'musician'
   title: string
   body: string
   image: string
@@ -21,10 +21,11 @@ const PICKS: Pick[] = [
     to: '/chief-of-staff',
   },
   {
-    id: 'musician',
-    title: 'Musician',
-    body: 'S2, EP9: How hard could it be?',
-    image: '/images/spotifymusician.png',
+    id: 'founder',
+    title: 'Founder',
+    body: 'S1, EP1: Five Stones and Aftercare Records',
+    image: '/images/fivestones.png',
+    to: '/founder',
   },
   {
     id: 'side',
@@ -32,6 +33,12 @@ const PICKS: Pick[] = [
     body: 'S3, EP8: We ball',
     image: '/images/sidequester.png',
     to: '/side-quester',
+  },
+  {
+    id: 'musician',
+    title: 'Musician',
+    body: 'S2, EP9: How hard could it be?',
+    image: '/images/spotifymusician.png',
   },
 ]
 
